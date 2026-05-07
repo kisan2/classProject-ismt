@@ -1,4 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
+:root{
+--pimary-color:#030712;
+--color-white:rgb(219, 217, 217);
+--secondary-color:#A87A2A;
+}
 
 *{
      font-family: "DM Sans", sans-serif;
@@ -9,7 +14,7 @@ body{
 }
 
 nav{
-    background-color: #030712;
+    background-color: var(--pimary-color);
 }
 
 .navigation{
@@ -38,11 +43,15 @@ nav{
 
 
 .nav_items a{
-    color: rgb(219, 217, 217);
+    color: var(--color-white);
     text-decoration: none;
     text-transform: capitalize;
     font-size: 14px;
     font-weight: 500;
+}
+
+.consultant_button div svg{
+    color: var(--color-white) !important;
 }
 
 .consultant_button{
@@ -51,11 +60,71 @@ nav{
     align-items: center;
 }
 
-.consultant_button button{
+.consultant_button .button{
     border: none;
-    padding: 10px 30px;
-    border-radius: 10px;
+    padding: 15px 30px;
+    border-radius: 30px;
     font-size: 14px;
     font-weight: 600;
+    background-color: var(--secondary-color);
+    color: var(--color-white);
+    position: relative;
+    overflow: clip;
+    transition: all .3s ease-in-out;
+
+
+}
+
+.consultant_button .button .button_text{
+    position: relative;
+    top: 0px;
+    left: 0px;
+    z-index: 1;
+}
+.consultant_button .button .hov_button{
+    background-color: var(--color-white);
+    height: 100%;
+    width: 0%;
+    position: absolute;
+    top:0px;
+    left: 0px;
+    content: "";
+    contain: "";
+    transition: all .3s ease-in-out;
+}
+.consultant_button .button:hover{
+    color: var(--secondary-color);
+}
+.consultant_button .button:hover .hov_button{
+    width: 100%;
+}
+
+.menu{
+    display: none;
+}
+
+/* media query */
+
+@media (max-width:480px){
+    .navigation{
+    padding: 12px 0px;
+
+}
+.logo img{
+    height: 30px;
+}
+.nav_items{
+    display: none;
+}
+
+.consultant_button{
+    display: none;
+}
+
+.menu{
+    display: block;
+    color: var(--color-white);
+    cursor: pointer;
+}
 
 }
